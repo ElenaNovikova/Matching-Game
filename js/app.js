@@ -57,16 +57,11 @@ cards.forEach(function(item, index, array) {
     // Creating the <li> element:
     let createLiTag = document.createElement('li');
 
-    // Setting the <li>´s class attribute:
+    // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
 
-    // Creating the <img> element:
-    let createImgTag = document.createElement('img');
-
-    createImgTag.setAttribute('src', 'img/back1.jpg');
-
-    // Adding the <img> element as the last child element of the <li class="card">:
-    createLiTag.appendChild(createImgTag);
+    // Creating the <img> element as the child element of the <li class="card">:
+    createLiTag.innerHTML = '<img src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
 
     // Selecting the <ul class="deck">:
     const ulDeck = document.querySelector('.deck');
