@@ -2,8 +2,24 @@
  * Create a list that holds all of your cards
  */
 
-let cards = ['frog', 'dog', 'sheep', 'muravied', 'antelope', 'baboon', 'chimpanzee', 'leopard', 'frog2', 'dog2', 'sheep2', 'muravied2',
-'antelope2', 'baboon2', 'chimpanzee2', 'leopard2'];
+let cards = [
+    'frog.jpg',
+    'dog.jpg',
+    'sheep.jpg',
+    'muravied.jpg',
+    'antelope.jpg',
+    'baboon.jpg',
+    'chimpanzee.jpg',
+    'leopard.jpg',
+    'frog.jpg',
+    'dog.jpg',
+    'sheep.jpg',
+    'muravied.jpg',
+    'antelope.jpg',
+    'baboon.jpg',
+    'chimpanzee.jpg',
+    'leopard.jpg'
+];
 
 /*
  * Display the cards on the page
