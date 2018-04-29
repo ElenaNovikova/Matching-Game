@@ -44,18 +44,17 @@ function shuffle(array) {
 }
 
 /*
- * To call the Shuffle method: (shuffle(cards));
  * Shuffling the list of cards using the "shuffle" method:
  */
 
 cards = shuffle(cards);
 
-// Looping through each card and creating its HTML
+// Looping through each card and creating its HTML and adding to the DOM
 
 cards.forEach(function(item, index, array) {
 
     // Creating the <li> element:
-    let createLiTag = document.createElement('li');
+    const createLiTag = document.createElement('li');
 
     // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
@@ -80,3 +79,36 @@ cards.forEach(function(item, index, array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+//Setting up the event listener for cards:
+
+let ulDeck = document.getElementById('decks');
+
+ulDeck.addEventListener('click', function (event) {
+    // The event target is the clicked item:
+    let clicked = event.target;
+    // Do not allow the <ul> itself to be selected; only select cards inside the <li>:
+    if (clicked.nodeName === 'UL') {
+        return;
+    };
+    if (counter < 2) {
+      counter++;
+      // Add selected class
+      clicked.classList.add('selected');
+    };
+ });
+
+// Variables to store two selected by the player cards:
+let firstCardClicked = '';
+let secondCardClicked = '';
+
+// Let's store the counter:
+let counter = 0;
+
+// A function for matching elements:
+const match = () => {
+  let selected = document.querySelectorAll('.selected');
+  selected.forEach(card => {
+    card.classList.add('match');
+  });
+}
