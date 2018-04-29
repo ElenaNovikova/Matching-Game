@@ -84,6 +84,10 @@ h1 {
     font-size: 33px;
 }
 
+.selected {
+  border: 4px solid yellow;
+}  // Adding somestyle for selected cards
+
 /*
  * Styles for the Score Panel
  */
