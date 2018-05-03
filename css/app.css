@@ -88,10 +88,42 @@ h1 {
   border: 3px solid blue;
 }
 
+/*
+ *
+ * Flip animation of matched cards
+ *
+ */
+
+.flip-scale-down-hor {
+   animation: flip-scale-down-hor 0.5s linear both;
+   -webkit-animation: flip-scale-down-hor 0.5s linear both;
+} 
+
+@keyframes flip-scale-down-hor {
+    0% {
+        transform: scale(1) rotateX(0);
+        -webkit-transform: scale(1) rotateX(0);
+    }
+    25% {
+        transform: scale(0.4) rotateX(90deg);
+        -webkit-transform: scale(0.4) rotateX(90deg);
+    }
+
+    50% {
+        transform: scale(0.8) rotateX(180deg);
+        -webkit-transform: scale(0.8) rotateX(180deg);
+    }
+
+    100% {
+        transform: scale(1) rotateX(0);
+        -webkit-transform: scale(1) rotateX(0);
+    }
+}
+
 .selected {
-  border: 3px solid yellow;
-  transform: scale(1.1);
-  transition: all .3s;
+    border: 3px solid yellow;
+    transform: scale(1.1);
+    transition: all .3s;
 }  // Adding somestyle for selected cards
 
 /*
