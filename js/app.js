@@ -59,8 +59,11 @@ cards.forEach(function(item, index, array) {
     // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
 
+    // Setting the <li>´s data attribute 'data-img-name' with the value of cards array item:
+    //createLiTag.dataset.imgName = item;
+
     // Creating the <img> element as the child element of the <li class="card">:
-    createLiTag.innerHTML = '<img src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
+    createLiTag.innerHTML = '<img src=\"img/' + cards[index] + '\"' + ' data-img-name=\"' + cards[index] + '\"' + ' alt=\"animal card\">';
 
     // Selecting the <ul class="deck">:
     const ulDeck = document.querySelector('.deck');
@@ -88,27 +91,45 @@ ulDeck.addEventListener('click', function (event) {
     // The event target is the clicked item:
     let clicked = event.target;
     // Do not allow the <ul> itself to be selected; only select cards inside the <li>:
-    if (clicked.nodeName === 'UL') {
+    if (clicked.nodeName === 'UL' || clicked === previousTarget) {
         return;
     };
     if (counter < 2) {
       counter++;
-      // Add selected class
-      clicked.classList.add('selected');
+      if (counter === 1) {
+          // Assigning the first card guess:
+          firstCardClicked = clicked.dataset.imgName;
+          // Add selected class
+          clicked.classList.add('selected');
+      } else {
+          // Assigning the second card guess:
+          secondCardClicked = clicked.dataset.imgName;
+          clicked.classList.add('selected');
+      };
+      // Now let's compare if the 1st and the 2nd clicked cards are matched:
+      if (firstCardClicked === secondCardClicked) {
+          doMatch();
+      };
+      // Set previous target to clicked
+      previousTarget = clicked;
     };
  });
 
-// Variables to store two selected by the player cards:
+// Variables to store two cards selected by the player:
 let firstCardClicked = '';
 let secondCardClicked = '';
+
+// Variables to prevent selecting the same card element twice:
+let previousTarget = null;
 
 // Let's store the counter:
 let counter = 0;
 
 // A function for matching elements:
-const match = () => {
-  let selected = document.querySelectorAll('.selected');
-  selected.forEach(card => {
-    card.classList.add('match');
-  });
+function doMatch() {
+    let selected = document.querySelectorAll('.selected');
+    selected.forEach(createLiTag => {
+        createLiTag.classList.remove('selected');
+        createLiTag.classList.add('matched');
+    });
 }
