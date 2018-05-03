@@ -131,5 +131,6 @@ function doMatch() {
     selected.forEach(createLiTag => {
         createLiTag.classList.remove('selected');
         createLiTag.classList.add('matched');
+        createLiTag.classList.add('flip-scale-down-hor');
     });
 }
