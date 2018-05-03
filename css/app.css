@@ -78,14 +78,20 @@ h1 {
     font-size: 33px;
 }
 
-.deck .card.match {
+/*.deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+}*/
+
+.matched {
+  border: 3px solid blue;
 }
 
 .selected {
-  border: 4px solid yellow;
+  border: 3px solid yellow;
+  transform: scale(1.1);
+  transition: all .3s;
 }  // Adding somestyle for selected cards
 
 /*
