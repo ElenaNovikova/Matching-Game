@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 
-let cards = [
+let cards3 = [
     'frog.jpg',
     'dog.jpg',
     'sheep.jpg',
@@ -19,6 +19,25 @@ let cards = [
     'baboon.jpg',
     'chimpanzee.jpg',
     'leopard.jpg'
+];
+
+let cards = [
+    'Bathing_of_a_Red_Horse_(Petrov-Vodkin).jpg',
+    'Mona_Lisa_Leonardo_da_Vinci.jpg',
+    'Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow.jpg',
+    'Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel.jpg',
+    'Sandro_Botticelli_-_La_nascita_di_Venere.jpg',
+    'The_Scream_Munk.jpg',
+    'Three_Bogatyrs_(Vasnetsov).jpg',
+    'Starry_Night_Over_the_Rhone2.jpg',
+    'Bathing_of_a_Red_Horse_(Petrov-Vodkin).jpg',
+    'Mona_Lisa_Leonardo_da_Vinci.jpg',
+    'Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow.jpg',
+    'Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel.jpg',
+    'Sandro_Botticelli_-_La_nascita_di_Venere.jpg',
+    'The_Scream_Munk.jpg',
+    'Three_Bogatyrs_(Vasnetsov).jpg',
+    'Starry_Night_Over_the_Rhone2.jpg'
 ];
 
 /*
@@ -95,23 +114,28 @@ ulDeck.addEventListener('click', function (event) {
         return;
     };
     if (counter < 2) {
-      counter++;
-      if (counter === 1) {
-          // Assigning the first card guess:
-          firstCardClicked = clicked.dataset.imgName;
-          // Add selected class
-          clicked.classList.add('selected');
-      } else {
-          // Assigning the second card guess:
-          secondCardClicked = clicked.dataset.imgName;
-          clicked.classList.add('selected');
-      };
-      // Now let's compare if the 1st and the 2nd clicked cards are matched:
-      if (firstCardClicked === secondCardClicked) {
-          doMatch();
-      };
-      // Set previous target to clicked
-      previousTarget = clicked;
+        counter++;
+        if (counter === 1) {
+            // Assigning the first card guess:
+            firstCardClicked = clicked.dataset.imgName;
+            // Add selected class
+            clicked.classList.add('selected');
+        } else {
+            // Assigning the second card guess:
+            secondCardClicked = clicked.dataset.imgName;
+            clicked.classList.add('selected');
+        };
+        // Now let's compare if the 1st and the 2nd clicked cards are matched:
+        if (firstCardClicked === secondCardClicked) {
+            doMatch();
+            discard();
+        } else {
+            //discard();
+        }
+
+
+        // Set previous target to clicked
+        previousTarget = clicked;
     };
  });
 
@@ -129,8 +153,19 @@ let counter = 0;
 function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
-        createLiTag.classList.remove('selected');
+        //createLiTag.classList.remove('selected');
         createLiTag.classList.add('matched');
         createLiTag.classList.add('flip-scale-down-hor');
     });
-}
+};
+
+// A function to discard the guesses:
+function discard() {
+    firstCardClicked = '';
+    secondCardClicked = '';
+    counter = 0;
+    let selected = document.querySelectorAll('.selected');
+    selected.forEach(createLiTag => {
+        createLiTag.classList.remove('selected');
+    });
+};
