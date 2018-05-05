@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 
-let cards3 = [
+const cardsPack3 = [
     'frog.jpg',
     'dog.jpg',
     'sheep.jpg',
@@ -21,7 +21,7 @@ let cards3 = [
     'leopard.jpg'
 ];
 
-let cards = [
+const cardsPack = [
     'Bathing_of_a_Red_Horse_(Petrov-Vodkin).jpg',
     'Mona_Lisa_Leonardo_da_Vinci.jpg',
     'Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow.jpg',
@@ -66,7 +66,17 @@ function shuffle(array) {
  * Shuffling the list of cards using the "shuffle" method:
  */
 
-cards = shuffle(cards);
+let cards = shuffle(cardsPack);
+
+// Variables to store two cards selected by the player:
+let firstCardClicked = '';
+let secondCardClicked = '';
+
+// Variables to prevent selecting the same card element twice:
+let previousTarget = null;
+
+// Let's store the counter:
+let counter = 0;
 
 // Looping through each card and creating its HTML and adding to the DOM
 
@@ -78,14 +88,11 @@ cards.forEach(function(item, index, array) {
     // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
 
-    // Setting the <li>´s data attribute 'data-img-name' with the value of cards array item:
-    //createLiTag.dataset.imgName = item;
-
     // Creating the <img> element as the child element of the <li class="card">:
     createLiTag.innerHTML = '<img src=\"img/' + cards[index] + '\"' + ' data-img-name=\"' + cards[index] + '\"' + ' alt=\"animal card\">';
 
     // Selecting the <ul class="deck">:
-    const ulDeck = document.querySelector('.deck');
+    let ulDeck = document.querySelector('.deck');
 
     // Adding the <li> element as the last child element of the <ul class="deck">:
     ulDeck.appendChild(createLiTag);
@@ -112,7 +119,7 @@ ulDeck.addEventListener('click', function (event) {
     // Do not allow the <ul> itself to be selected; only select cards inside the <li>:
     if (clicked.nodeName === 'UL' || clicked === previousTarget) {
         return;
-    };
+    }
     if (counter < 2) {
         counter++;
         if (counter === 1) {
@@ -124,30 +131,21 @@ ulDeck.addEventListener('click', function (event) {
             // Assigning the second card guess:
             secondCardClicked = clicked.dataset.imgName;
             clicked.classList.add('selected');
-        };
-        // Now let's compare if the 1st and the 2nd clicked cards are matched:
-        if (firstCardClicked === secondCardClicked) {
-            doMatch();
-            discard();
-        } else {
-            //discard();
         }
-
+        // Now let's compare if the 1st and the 2nd clicked cards are matched:
+        if (firstCardClicked !== '' && secondCardClicked !== '') {
+            if (firstCardClicked === secondCardClicked) {
+                doMatch();
+                discard();
+            } else {
+                discard();
+            }
+         }
 
         // Set previous target to clicked
         previousTarget = clicked;
-    };
+    }
  });
-
-// Variables to store two cards selected by the player:
-let firstCardClicked = '';
-let secondCardClicked = '';
-
-// Variables to prevent selecting the same card element twice:
-let previousTarget = null;
-
-// Let's store the counter:
-let counter = 0;
 
 // A function for matching elements:
 function doMatch() {
