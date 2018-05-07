@@ -117,7 +117,7 @@ ulDeck.addEventListener('click', function (event) {
     // The event target is the clicked item:
     let clicked = event.target;
     // Do not allow the <ul> itself to be selected; only select cards inside the <li>:
-    if (clicked.nodeName === 'UL' || clicked === previousTarget) {
+    if (clicked.nodeName === 'UL' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
         return;
     }
     if (counter < 2) {
@@ -135,10 +135,13 @@ ulDeck.addEventListener('click', function (event) {
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
             if (firstCardClicked === secondCardClicked) {
-                doMatch();
-                discard();
+                //doMatch();
+                //discard();
+                setTimeout(doMatch, delay);
+                setTimeout(discard, delay);
             } else {
-                discard();
+                //discard();
+                setTimeout(discard, delay);
             }
          }
 
@@ -167,3 +170,6 @@ function discard() {
         createLiTag.classList.remove('selected');
     });
 };
+
+// Adding the delay of 1.4 seconds to opened cards before they'll be flipped over:
+let delay = 1400;
