@@ -84,12 +84,19 @@ h1 {
 
 .card {
   position: relative;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
 }
 
 .face,
 .back {
   position: absolute;
-  backface-visibility: hidden;
+  /*backface-visibility: hidden;*/
+}
+
+.face {
+  transform: rotateY(180deg);
 }
 
 .matched {
@@ -130,9 +137,10 @@ h1 {
 
 .selected {
     border: 3px solid yellow;
-    transform: scale(1.1);
-    transition: all .3s;
-}  // Adding somestyle for selected cards
+    transform: rotateY(180deg);
+    /*transform: scale(1.1);
+    /*transition: all .3s;*/
+}  /* Adding somestyle for selected cards*/
 
 /*
  * Styles for the Score Panel
