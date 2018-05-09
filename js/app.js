@@ -86,11 +86,11 @@ cards.forEach(function(item, index, array) {
     const createLiTag = document.createElement('li');
     // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
-
+    createLiTag.setAttribute('data-img-name', cards[index]);
     /* Creating the front of the card:
     */
     // Creating the 1st <img> element as the child element of the <li>:
-    createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' data-img-name=\"' + cards[index] + '\"' + ' alt=\"animal card\">';
+    createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
 
     /* Creating the back of the card:
     */
@@ -136,13 +136,13 @@ ulDeck.addEventListener('click', function (event) {
         counter++;
         if (counter === 1) {
             // Assigning the first card guess:
-            firstCardClicked = clicked.dataset.imgName;
+            firstCardClicked = clicked.parentNode.dataset.imgName;
             // Add selected class
-            clicked.classList.add('selected');
+            clicked.parentNode.classList.add('selected');
         } else {
             // Assigning the second card guess:
-            secondCardClicked = clicked.dataset.imgName;
-            clicked.classList.add('selected');
+            secondCardClicked = clicked.parentNode.dataset.imgName;
+            clicked.parentNode.classList.add('selected');
         }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
