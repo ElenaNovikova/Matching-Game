@@ -82,6 +82,16 @@ h1 {
     font-size: 33px;
 }*/
 
+.card {
+  position: relative;
+}
+
+.face,
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
 .matched {
   border: 3px solid blue;
 }
