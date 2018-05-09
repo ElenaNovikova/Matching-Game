@@ -146,7 +146,8 @@ ulDeck.addEventListener('click', function (event) {
         }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
-            if (firstCardClicked === secondCardClicked && ((firstCardClicked) && secondCardClicked !== '.back')) {
+            //if (firstCardClicked === secondCardClicked && ((firstCardClicked) && secondCardClicked !== '.back')) {
+            if (firstCardClicked === secondCardClicked) {
                 setTimeout(doMatch, delay);
                 setTimeout(discard, delay);
             } else {
@@ -164,7 +165,7 @@ function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
         createLiTag.classList.add('matched');
-        createLiTag.classList.add('flip-scale-down-hor');
+        //createLiTag.classList.add('flip-scale-down-hor');
     });
 };
 
