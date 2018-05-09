@@ -82,20 +82,32 @@ let counter = 0;
 
 cards.forEach(function(item, index, array) {
 
-    // Creating the <li> element:
+    // Creating the <li> element for the card:
     const createLiTag = document.createElement('li');
-
     // Setting the <li>´s class attribute 'card':
     createLiTag.setAttribute('class', 'card');
 
-    // Creating the <img> element as the child element of the <li class="card">:
-    createLiTag.innerHTML = '<img src=\"img/' + cards[index] + '\"' + ' data-img-name=\"' + cards[index] + '\"' + ' alt=\"animal card\">';
+    /* Creating the front of the card:
+    */
+    // Creating the 1st <img> element as the child element of the <li>:
+    createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' data-img-name=\"' + cards[index] + '\"' + ' alt=\"animal card\">';
+
+    /* Creating the back of the card:
+    */
+    // Creating the 2nd <img> element for back-side of the card:
+    const cardBack = document.createElement('img');
+    createLiTag.appendChild(cardBack);
+    // Setting the <li>´s classes attributes 'card' and 'back':
+    cardBack.setAttribute('class', 'back');
+    cardBack.setAttribute('src', 'img/back1.jpg');
+    cardBack.setAttribute('alt', 'back of the card');
 
     // Selecting the <ul class="deck">:
     let ulDeck = document.querySelector('.deck');
 
     // Adding the <li> element as the last child element of the <ul class="deck">:
     ulDeck.appendChild(createLiTag);
+
 });
 
 /*
@@ -109,7 +121,7 @@ cards.forEach(function(item, index, array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-//Setting up the event listener for cards:
+// Setting up the event listener for cards:
 
 let ulDeck = document.getElementById('decks');
 
@@ -134,18 +146,15 @@ ulDeck.addEventListener('click', function (event) {
         }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
-            if (firstCardClicked === secondCardClicked) {
-                //doMatch();
-                //discard();
+            if (firstCardClicked === secondCardClicked && ((firstCardClicked) && secondCardClicked !== '.back')) {
                 setTimeout(doMatch, delay);
                 setTimeout(discard, delay);
             } else {
-                //discard();
                 setTimeout(discard, delay);
             }
-         }
+        }
 
-        // Set previous target to clicked
+        // Set previous target to clicked:
         previousTarget = clicked;
     }
  });
@@ -154,7 +163,6 @@ ulDeck.addEventListener('click', function (event) {
 function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
-        //createLiTag.classList.remove('selected');
         createLiTag.classList.add('matched');
         createLiTag.classList.add('flip-scale-down-hor');
     });
