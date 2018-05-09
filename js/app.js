@@ -165,7 +165,7 @@ function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
         createLiTag.classList.add('matched');
-        //createLiTag.classList.add('flip-scale-down-hor');
+        createLiTag.classList.add('flip-scale-down-hor');
     });
 };
 
