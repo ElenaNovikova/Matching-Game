@@ -7,35 +7,39 @@
     <meta name="author" content="Elena Novikova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Matching Game</h1>
+            <h1>Matching&nbsp;&nbsp;Game</h1>
         </header>
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
         	</ul>
 
         	<span class="moves">3</span> Moves
 
-            <div class="restart"><input type="button" value = "Restart" onclick="history.go(0)" />
-        		<!-- <i class="fa fa-repeat"></i> -->
-        	</div>
+            <input id="restart" type="button" value = "Restart" onclick="history.go(0)"/>
+            <p>Choose theme:</p>
+            <ul id="theme">
+          		<li class="pack2"><i class="fas fa-frog fa-lg"></i>&nbsp;&nbsp;Animals</li>
+          		<li id="pack"><i class="fas fa-palette fa-lg"></i>&nbsp;&nbsp;Paintings</li>
+          	</ul>
         </section>
 
         <ul id="decks" class="deck">
         </ul>
-        <footer>
-          <p>Developed by Elena Novikova in 2018</p>
+        <footer class="footer-text">
+          <p>Developed by <a href="http://www.issomesmo.net" target="_blank">Elena Novikova</a> in 2018</p>
         </footer>
     </div>
 
