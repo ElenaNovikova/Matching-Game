@@ -78,6 +78,13 @@ let previousTarget = null;
 // Let's store the counter:
 let counter = 0;
 
+// Restarting the game:
+/* let restartGame = document.getElementsByClassName('restart');
+restartGame.addEventListener('click', function () {
+    //window.location.reload();
+    location.reload(true);
+}; */
+
 // Looping through each card and creating its HTML and adding to the DOM
 
 cards.forEach(function(item, index, array) {
