@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 
-const cardsPack3 = [
+const cardsPack2 = [
     'frog.jpg',
     'dog.jpg',
     'sheep.jpg',
@@ -39,6 +39,24 @@ const cardsPack = [
     'Three_Bogatyrs_(Vasnetsov).jpg',
     'Starry_Night_Over_the_Rhone2.jpg'
 ];
+
+/* Choosing the game theme - Animals (pack2) or Paintings (pack):
+*/
+// Function to change the game theme:
+function changeTheme(new_text) {
+  let pack2 = document.getElementById('pack2');
+  pack2.firstChild.nodeValue = new_text;
+}
+
+// Function to add event listener:
+let el = document.getElementById('theme');
+el.addEventListener('click', function() {
+    if (clicked.classList.contains('pack2')) {
+      alert('changeTheme2');
+    } else {
+      changeTheme('four');
+    }
+}, false);
 
 /*
  * Display the cards on the page
