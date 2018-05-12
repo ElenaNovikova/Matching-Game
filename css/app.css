@@ -17,6 +17,18 @@ body {
     color: white;
 }
 
+a {
+    color: wheat;
+}
+
+a:active {
+    color: red;
+}
+
+a:hover {
+    color: #9f4caf;
+}
+
 body {
     /* The picture used as a background is a faithful photographic reproduction of a two-dimensional, public domain work of art of the
     Vincent van Gogh "Starry night over the Rhône" (1888), and considered to be in the public domain. Source: https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg */
@@ -32,8 +44,53 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    background: rgba(0,0,0,.15);
+    color: white;
+    text-shadow: 5px 10px 8px #000,
+                 3px 3px 5px darkblue;
+}
+
+p {
+  font: bold 20px sans-serif;
+  background: rgba(0,0,0,.2);
+  color: white;
+  text-shadow: 1px 2px 1px #000,
+               3px 3px 5px darkblue;
+}
+
+#theme {
+    text-transform:uppercase;
+    text-align: center;
+}
+
+#theme li {
+    list-style: none;
+    display: flow-root;
+    font-size: 20px;
+    padding: 0px 5px 10px;
+    background: rgba(0,0,0,.2);
+    text-shadow: 1px 2px 1px #000,
+                 3px 3px 5px darkblue;
+    cursor: pointer;
+}
+
+.fa-lg {
+    padding-right: 10px;
+    color: #9f4caf;
+    text-shadow: 1px 2px 5px #000,
+                 3px 3px 8px darkblue;
+}
+
+.footer-text {
+    font: bold 20px sans-serif;
+    padding: 5px 20px;
+    background: rgba(0,0,0,.15);
+    color: white;
+    text-shadow: 1px 2px 1px #000,
+                 3px 3px 5px darkblue;
 }
 
 /*
@@ -67,25 +124,25 @@ h1 {
 }
 
 .card {
-  position: relative;
-  transition: all .4s linear;
-  transform-style: preserve-3d;
-  margin: 5px;
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    margin: 5px;
 }
 
 .face,
 .back {
-  position: absolute;
-  backface-visibility: hidden;
+    position: absolute;
+    backface-visibility: hidden;
 }
 
 .face {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg); /* Chrome, Safari, Opera */
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); /* Chrome, Safari, Opera */
 }
 
 .selected {
-    border: 3px solid yellow;
+    border: 3px solid #9f4caf;
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     /*transform: scale(1.1);
@@ -99,8 +156,8 @@ h1 {
  */
 
 /*.flip-scale-down-hor {
-   animation: flip-scale-down-hor 0.5s linear both;
-   -webkit-animation: flip-scale-down-hor 0.5s linear both; /* Chrome, Safari, Opera */
+       animation: flip-scale-down-hor 0.5s linear both;
+       -webkit-animation: flip-scale-down-hor 0.5s linear both; /* Chrome, Safari, Opera */
 /*}*/
 
 @keyframes flip-scale-down-hor {
@@ -130,11 +187,11 @@ h1 {
 }
 
 .matched {
-  border: 3px solid #557096;
-  /*animation: flip-scale-down-hor 0.5s linear both;
-  -webkit-animation: flip-scale-down-hor 0.5s linear both;*/
-  transform: rotateY(180deg) scale(1.05);
-  -webkit-transform: rotateY(180deg) scale(1.05);
+    border: 3px solid #557096;
+    /*animation: flip-scale-down-hor 0.5s linear both;
+    -webkit-animation: flip-scale-down-hor 0.5s linear both;*/
+    transform: rotateY(180deg) scale(1.05);
+    -webkit-transform: rotateY(180deg) scale(1.05);
 }
 
 /*
@@ -152,6 +209,11 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    background: #9f4caf;
+}
+
+.score-panel .moves {
+    background-color: rgba(46, 61, 73, 0.9);
 }
 
 .score-panel .stars li {
@@ -159,7 +221,17 @@ h1 {
     display: inline-block;
 }
 
-.score-panel .restart {
+#restart {
     float: right;
+    background-color: #9f4caf;
+    border: none;
+    box-shadow: 8px 12px 10px 0 rgba(10, 6, 40, 0.7);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: -5px 2px;
     cursor: pointer;
 }
