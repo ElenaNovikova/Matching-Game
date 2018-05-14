@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ * Creating a list that holds all of the cards (pack-1: "Paintings" & pack-2: "Animals"):
  */
 
 const cardsPack2 = [
@@ -40,22 +40,53 @@ const cardsPack = [
     'Starry_Night_Over_the_Rhone2.jpg'
 ];
 
+let currentArray = cardsPack;
+
 /* Choosing the game theme - Animals (pack2) or Paintings (pack):
 */
-// Function to change the game theme:
-function changeTheme(new_text) {
-  let pack2 = document.getElementById('pack2');
-  pack2.firstChild.nodeValue = new_text;
-}
 
-// Function to add event listener:
 let el = document.getElementById('theme');
-el.addEventListener('click', function() {
+
+el.addEventListener('click', function(event) {
+    let clicked = event.target;
     if (clicked.classList.contains('pack2')) {
-      alert('changeTheme2');
+        currentArray = cardsPack2; // Animals theme
+        let body = document.getElementsByTagName('body')[0];
+        body.style.backgroundImage = 'url(img/peacock.jpg)';
+
+        // adding check-icon for choosed theme:
+        let objAnimals = document.getElementById('checkA');
+        if (objAnimals != null)
+          objAnimals.remove();
+
+        let objPaintings = document.getElementById('checkP');
+        if (objPaintings != null)
+          objPaintings.remove();
+
+        let liFa = document.querySelector('li.pack2');
+        let checkIcone = '<i id="checkA" class="fas fa-check"></i>';
+        liFa.insertAdjacentHTML('afterbegin', checkIcone);
     } else {
-      changeTheme('four');
+        currentArray = cardsPack;  // Paintings theme
+        let body = document.getElementsByTagName('body')[0];
+        body.style.backgroundImage = 'url(img/Starry_Night_Over_the_Rhone.jpg)';
+
+        let objAnimals = document.getElementById('checkA');
+        if (objAnimals != null)
+          objAnimals.remove();
+
+        let objPaintings = document.getElementById('checkP');
+        if (objPaintings != null)
+          objPaintings.remove();
+
+        let liFa = document.getElementById('pack');
+        let checkIcone = '<i id="checkP" class="fas fa-check"></i>';
+        liFa.insertAdjacentHTML('afterbegin', checkIcone);
     }
+    cards = shuffle(currentArray);
+    let ulDeck = document.querySelector('.deck');
+    ulDeck.innerHTML = '';
+    createImages();
 }, false);
 
 /*
@@ -66,6 +97,7 @@ el.addEventListener('click', function() {
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -84,56 +116,65 @@ function shuffle(array) {
  * Shuffling the list of cards using the "shuffle" method:
  */
 
-let cards = shuffle(cardsPack);
+let cards = shuffle(currentArray);
 
 // Variables to store two cards selected by the player:
+
 let firstCardClicked = '';
 let secondCardClicked = '';
 
 // Variables to prevent selecting the same card element twice:
+
 let previousTarget = null;
 
 // Let's store the counter:
+
 let counter = 0;
 
 // Restarting the game:
-/* let restartGame = document.getElementsByClassName('restart');
+
+let restartGame = document.getElementById('restart');
 restartGame.addEventListener('click', function () {
-    //window.location.reload();
-    location.reload(true);
-}; */
-
-// Looping through each card and creating its HTML and adding to the DOM
-
-cards.forEach(function(item, index, array) {
-
-    // Creating the <li> element for the card:
-    const createLiTag = document.createElement('li');
-    // Setting the <li>´s class attribute 'card':
-    createLiTag.setAttribute('class', 'card');
-    createLiTag.setAttribute('data-img-name', cards[index]);
-    /* Creating the front of the card:
-    */
-    // Creating the 1st <img> element as the child element of the <li>:
-    createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
-
-    /* Creating the back of the card:
-    */
-    // Creating the 2nd <img> element for back-side of the card:
-    const cardBack = document.createElement('img');
-    createLiTag.appendChild(cardBack);
-    // Setting the <li>´s classes attributes 'card' and 'back':
-    cardBack.setAttribute('class', 'back');
-    cardBack.setAttribute('src', 'img/back1.jpg');
-    cardBack.setAttribute('alt', 'back of the card');
-
-    // Selecting the <ul class="deck">:
-    let ulDeck = document.querySelector('.deck');
-
-    // Adding the <li> element as the last child element of the <ul class="deck">:
-    ulDeck.appendChild(createLiTag);
-
+    window.location.reload();
+    //location.reload(true);
 });
+
+// Looping through each card and creating its HTML and adding to the DOM:
+
+function createImages()
+{
+  cards.forEach(function(item, index, array) {
+
+      // Creating the <li> element for the card:
+      const createLiTag = document.createElement('li');
+      // Setting the <li>´s class attribute 'card':
+      createLiTag.setAttribute('class', 'card');
+      createLiTag.setAttribute('data-img-name', cards[index]);
+      /* Creating the front of the card:
+      */
+      // Creating the 1st <img> element as the child element of the <li>:
+      createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
+
+      /* Creating the back of the card:
+      */
+      // Creating the 2nd <img> element for back-side of the card:
+      const cardBack = document.createElement('img');
+      createLiTag.appendChild(cardBack);
+      // Setting the <li>´s classes attributes 'card' and 'back':
+      cardBack.setAttribute('class', 'back');
+      cardBack.setAttribute('src', 'img/back1.jpg');
+      cardBack.setAttribute('alt', 'back of the card');
+
+      // Selecting the <ul class="deck">:
+      let ulDeck = document.querySelector('.deck');
+
+      // Adding the <li> element as the last child element of the <ul class="deck">:
+      ulDeck.appendChild(createLiTag);
+
+  });
+}
+
+createImages();
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -154,7 +195,8 @@ ulDeck.addEventListener('click', function (event) {
     // The event target is the clicked item:
     let clicked = event.target;
     // Do not allow the <ul> itself to be selected; only select cards inside the <li>:
-    if (clicked.nodeName === 'UL' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
+    //if (clicked.nodeName === 'UL' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
+    if (clicked.nodeName === 'UL' || clicked.parentNode.classList.contains('selected')) {
         return;
     }
     if (counter < 2) {
@@ -186,6 +228,7 @@ ulDeck.addEventListener('click', function (event) {
  });
 
 // A function for matching elements:
+
 function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
@@ -195,6 +238,7 @@ function doMatch() {
 };
 
 // A function to discard the guesses:
+
 function discard() {
     firstCardClicked = '';
     secondCardClicked = '';
@@ -206,4 +250,5 @@ function discard() {
 };
 
 // Adding the delay of 1.4 seconds to opened cards before they'll be flipped over:
+
 let delay = 1400;
