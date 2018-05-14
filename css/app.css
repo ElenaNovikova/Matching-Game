@@ -84,6 +84,14 @@ p {
                  3px 3px 8px darkblue;
 }
 
+.fa-check {
+    padding-right: 10px;
+}
+
+.faactive {
+    color: blue;
+}
+
 .footer-text {
     font: bold 20px sans-serif;
     padding: 5px 20px;
