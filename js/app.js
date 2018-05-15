@@ -41,6 +41,7 @@ const cardsPack = [
 ];
 
 let currentArray = cardsPack;
+let timerOn = false;
 
 /* Choosing the game theme - Animals (pack2) or Paintings (pack):
 */
@@ -137,6 +138,7 @@ let restartGame = document.getElementById('restart');
 restartGame.addEventListener('click', function () {
     window.location.reload();
     //location.reload(true);
+    //document.location.href = '';
 });
 
 // Looping through each card and creating its HTML and adding to the DOM:
@@ -200,6 +202,7 @@ ulDeck.addEventListener('click', function (event) {
         return;
     }
     if (counter < 2) {
+        gameTimer();
         counter++;
         if (counter === 1) {
             // Assigning the first card guess:
@@ -213,7 +216,6 @@ ulDeck.addEventListener('click', function (event) {
         }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
-            //if (firstCardClicked === secondCardClicked && ((firstCardClicked) && secondCardClicked !== '.back')) {
             if (firstCardClicked === secondCardClicked) {
                 setTimeout(doMatch, delay);
                 setTimeout(discard, delay);
@@ -252,3 +254,32 @@ function discard() {
 // Adding the delay of 1.4 seconds to opened cards before they'll be flipped over:
 
 let delay = 1400;
+
+// Setting game timer:
+
+let seconds = 0;
+let minutes = 0;
+
+function gameTimer() {
+    if (timerOn) {
+      return;
+    }
+    timerOn = true;
+    let startTime = setInterval(() => {
+        let minStr = minutes + '';  // display 2 digits for minutes
+        let secStr = seconds + '';  // display 2 digits for seconds
+
+        if (minStr.length < 2) {
+            minStr = '0' + minStr;
+        }
+        if (secStr.length < 2) {
+            secStr = '0' + secStr;
+        }
+        document.getElementById('timer').innerHTML = minStr + ' : ' + secStr;
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
+    }, 1000);
+};
