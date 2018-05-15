@@ -1,15 +1,23 @@
 # Matching-Game
+
 Project nº3 for Udacity's Front-End Nanodegree program.
 <br><i>Unfinished project. Developing in progress.</i>
 <p>Preview available at: https://elenanovikova.github.io/Matching-Game/ </p>
+
 ## About the project
+
 The Matching/Memory Game Project is a complete browser-based card matching game, also known as Concentration game. It is a complex web application, that combines student's skills in HTML, CSS, and JavaScript into a relatively large project.
+
 ## How to play
+
 bla-bla-bla
+
 ## Acknowledgments
+
 - @Udacity Front-End Web Development Nanodegree program.
 - starter code from https://github.com/udacity/fend-project-memory-game <br>
 - Shuffle function from http://stackoverflow.com/a/2450976
+
 ## Photo credits
 
 Animals theme cards photos from:
