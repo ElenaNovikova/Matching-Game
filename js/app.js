@@ -41,27 +41,31 @@ const cardsPack = [
 ];
 
 let currentArray = cardsPack;
-let timerOn = false;
+let timerId = 0;
+let timerOn = false;  // By default timer is set to OFF.
 
-/* Choosing the game theme - Animals (pack2) or Paintings (pack):
-*/
+/*
+ * Choosing the game theme - Animals (pack2) or Paintings (pack):
+ */
 
 let el = document.getElementById('theme');
 
 el.addEventListener('click', function(event) {
     let clicked = event.target;
+    stopInterval();
     if (clicked.classList.contains('pack2')) {
+        window.clearInterval(timerOn);
         currentArray = cardsPack2; // Animals theme
         let body = document.getElementsByTagName('body')[0];
         body.style.backgroundImage = 'url(img/peacock.jpg)';
 
-        // adding check-icon for choosed theme:
+        // Adding check-icon for choosed theme:
         let objAnimals = document.getElementById('checkA');
-        if (objAnimals != null)
+        if (objAnimals !== null)
           objAnimals.remove();
 
         let objPaintings = document.getElementById('checkP');
-        if (objPaintings != null)
+        if (objPaintings !== null)
           objPaintings.remove();
 
         let liFa = document.querySelector('li.pack2');
@@ -73,11 +77,11 @@ el.addEventListener('click', function(event) {
         body.style.backgroundImage = 'url(img/Starry_Night_Over_the_Rhone.jpg)';
 
         let objAnimals = document.getElementById('checkA');
-        if (objAnimals != null)
+        if (objAnimals !== null)
           objAnimals.remove();
 
         let objPaintings = document.getElementById('checkP');
-        if (objPaintings != null)
+        if (objPaintings !== null)
           objPaintings.remove();
 
         let liFa = document.getElementById('pack');
@@ -98,7 +102,6 @@ el.addEventListener('click', function(event) {
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -120,21 +123,18 @@ function shuffle(array) {
 let cards = shuffle(currentArray);
 
 // Variables to store two cards selected by the player:
-
 let firstCardClicked = '';
 let secondCardClicked = '';
 
 // Variables to prevent selecting the same card element twice:
-
 let previousTarget = null;
 
 // Let's store the counter:
-
 let counter = 0;
 
 // Restarting the game:
-
 let restartGame = document.getElementById('restart');
+
 restartGame.addEventListener('click', function () {
     window.location.reload();
     //location.reload(true);
@@ -142,7 +142,6 @@ restartGame.addEventListener('click', function () {
 });
 
 // Looping through each card and creating its HTML and adding to the DOM:
-
 function createImages()
 {
   cards.forEach(function(item, index, array) {
@@ -152,13 +151,15 @@ function createImages()
       // Setting the <li>´s class attribute 'card':
       createLiTag.setAttribute('class', 'card');
       createLiTag.setAttribute('data-img-name', cards[index]);
-      /* Creating the front of the card:
-      */
+      /*
+       * Creating the front of the card
+       */
       // Creating the 1st <img> element as the child element of the <li>:
       createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
 
-      /* Creating the back of the card:
-      */
+      /*
+       * Creating the back of the card
+       */
       // Creating the 2nd <img> element for back-side of the card:
       const cardBack = document.createElement('img');
       createLiTag.appendChild(cardBack);
@@ -190,7 +191,6 @@ createImages();
  */
 
 // Setting up the event listener for cards:
-
 let ulDeck = document.getElementById('decks');
 
 ulDeck.addEventListener('click', function (event) {
@@ -230,7 +230,6 @@ ulDeck.addEventListener('click', function (event) {
  });
 
 // A function for matching elements:
-
 function doMatch() {
     let selected = document.querySelectorAll('.selected');
     selected.forEach(createLiTag => {
@@ -240,7 +239,6 @@ function doMatch() {
 };
 
 // A function to discard the guesses:
-
 function discard() {
     firstCardClicked = '';
     secondCardClicked = '';
@@ -252,20 +250,33 @@ function discard() {
 };
 
 // Adding the delay of 1.4 seconds to opened cards before they'll be flipped over:
-
 let delay = 1400;
 
-// Setting game timer:
+/*
+ * Setting the game timer:
+ */
 
 let seconds = 0;
 let minutes = 0;
+
+// Function for zeroing the counter:
+function stopInterval() {
+    if (timerId == 0) {
+        return;
+    }
+    timerOn = false;
+    minutes = 0;
+    seconds = 0;
+    document.getElementById('timer').innerHTML = '00:00';
+    clearInterval(timerId);
+};
 
 function gameTimer() {
     if (timerOn) {
       return;
     }
     timerOn = true;
-    let startTime = setInterval(() => {
+    timerId = setInterval(() => {
         let minStr = minutes + '';  // display 2 digits for minutes
         let secStr = seconds + '';  // display 2 digits for seconds
 
