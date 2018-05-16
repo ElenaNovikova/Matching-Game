@@ -12,11 +12,16 @@ The Matching/Memory Game Project is a complete browser-based card matching game,
 
 The game board consists of sixteen virtual cards. The deck is made up of eight different pairs of cards, each with different images on one side. The cards are arranged randomly, with the image face down. The player must flip over two hidden cards at a time to locate the ones that match. The game ends once all cards have been correctly matched.
 
+## Browser compatibility
+
+Application supports the majority of modern desktop, tablet, and phone browsers.
+
 ## Acknowledgments
 
 - Udacity's [Front-End Web Development Nanodegree](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001/) program.
 - Project's starter code from: https://github.com/udacity/fend-project-memory-game
 - Shuffle function from: http://stackoverflow.com/a/2450976
+- Really useful article from Tania Rascia: https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/
 
 ## Photo credits
 
