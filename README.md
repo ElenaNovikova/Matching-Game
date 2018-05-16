@@ -10,7 +10,7 @@ The Matching/Memory Game Project is a complete browser-based card matching game,
 
 ## How to play
 
-bla-bla-bla
+The game board consists of sixteen virtual cards. The deck is made up of eight different pairs of cards, each with different images on one side. The cards are arranged randomly, with the image face down. The player must flip over two hidden cards at a time to locate the ones that match. The game ends once all cards have been correctly matched.
 
 ## Acknowledgments
 
