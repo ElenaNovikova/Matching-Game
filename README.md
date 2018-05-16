@@ -15,7 +15,7 @@ bla-bla-bla
 ## Acknowledgments
 
 - @Udacity Front-End Web Development Nanodegree program.
-- starter code from: https://github.com/udacity/fend-project-memory-game <br>
+- Project's starter code from: https://github.com/udacity/fend-project-memory-game
 - Shuffle function from: http://stackoverflow.com/a/2450976
 
 ## Photo credits
@@ -58,19 +58,19 @@ https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
 https://pixabay.com/pt/ponto-de-interroga%C3%A7%C3%A3o-pilha-pergunta-2492009/
 <br>
 #### Paintings theme card's images from:
-1. By Author: Petrov-Vodkin, Kuzma Sergeevich - "Bathing a red horse". http://bibliotekar.ru/kPetrovVodkin/4.htm, Public Domain, https://commons.wikimedia.org/w/index.php?curid=878169
+1. By Author: Petrov-Vodkin, Kuzma Sergeevich - "Bathing a red horse" (1912). http://bibliotekar.ru/kPetrovVodkin/4.htm, Public Domain, https://commons.wikimedia.org/w/index.php?curid=878169
 
-2. By Author: Viktor Mikhailovich Vasnetsov - "Three bogatyrs".
+2. By Author: Viktor Mikhailovich Vasnetsov - "Bogatyrs" (1898).
 http://lj.rossia.org/users/john_petrov/6524.html, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1388349
 
-3. By Author: Pieter Bruegel the Elder - "The Tower of Babel". Levels adjusted from File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg, originally from Google Art Project, Domínio público, https://commons.wikimedia.org/w/index.php?curid=22179117
+3. By Author: Pieter Bruegel the Elder - "The Tower of Babel" (1563). Levels adjusted from File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg, originally from Google Art Project, Domínio público, https://commons.wikimedia.org/w/index.php?curid=22179117
 
-4. By Author: Pieter Bruegel the Elder - "Hunters in the Snow (Winter)" at Google Cultural Institute maximum zoom level, Public Domain, https://commons.wikimedia.org/w/index.php?curid=22189570
+4. By Author: Pieter Bruegel the Elder - "Hunters in the Snow (Winter)" (1565). File from Google Cultural Institute, maximum zoom level, Public Domain, https://commons.wikimedia.org/w/index.php?curid=22189570
 
-5. By Author: Leonardo da Vinci - "Mona Lisa". Galerie de tableaux en très haute définition: image page - Cropped and relevelled from File:Mona Lisa, by Leonardo da Vinci, from C2RMF.jpg. Originally C2RMF: Galerie de tableaux en très haute définition: image page, Public Domain, https://commons.wikimedia.org/w/index.php?curid=15442524
+5. By Author: Leonardo da Vinci - "Mona Lisa" (1503). Galerie de tableaux en très haute définition: image page - Cropped and relevelled from File:Mona Lisa, by Leonardo da Vinci, from C2RMF.jpg. Originally C2RMF: Galerie de tableaux en très haute définition: image page, Public Domain, https://commons.wikimedia.org/w/index.php?curid=15442524
 
-6. By Author: Edvard Munch - "Scream". WebMuseum at ibiblioPage: http://www.ibiblio.org/wm/paint/auth/munch/Image URL: http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg, Public Domain, https://commons.wikimedia.org/w/index.php?curid=37610298
+6. By Author: Edvard Munch - "Scream" (1893). WebMuseum at ibiblioPage: http://www.ibiblio.org/wm/paint/auth/munch/Image URL: http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg, Public Domain, https://commons.wikimedia.org/w/index.php?curid=37610298
 
-7. By Author: Sandro Botticelli - "La nascita di Venere". Adjusted levels from File:Sandro Botticelli - La nascita di Venere - Google Art Project.jpg, originally from Google Art Project. Compression Photoshop level 9., Public Domain, https://commons.wikimedia.org/w/index.php?curid=22507491
+7. By Author: Sandro Botticelli - "La nascita di Venere" (1484–1486). Adjusted levels from File:Sandro Botticelli - La nascita di Venere - Google Art Project.jpg, originally from Google Art Project. Compression Photoshop level 9., Public Domain, https://commons.wikimedia.org/w/index.php?curid=22507491
 
-8. By Author: Vincent van Gogh "Starry night over the Rhône" (1888). A faithful photographic reproduction of a two-dimensional, public domain work of art. Source: https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
+8. By Author: Vincent van Gogh - "Starry night over the Rhône" (1888). A faithful photographic reproduction of a two-dimensional, public domain work of art. Source: https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
