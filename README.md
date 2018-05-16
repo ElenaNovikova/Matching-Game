@@ -60,7 +60,7 @@ https://www.pexels.com/photo/close-up-photography-of-peacock-148291/
 https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
 
 #### Back-side of the card:
-https://pixabay.com/pt/ponto-de-interroga%C3%A7%C3%A3o-pilha-pergunta-2492009/
+my own illustration.
 <br>
 #### Paintings theme card's images from:
 1. By Author: **Petrov-Vodkin, Kuzma Sergeevich - "Bathing a red horse" (1912)**. http://bibliotekar.ru/kPetrovVodkin/4.htm, Public Domain, https://commons.wikimedia.org/w/index.php?curid=878169
