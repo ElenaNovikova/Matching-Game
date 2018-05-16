@@ -51,6 +51,9 @@ https://www.pexels.com/photo/animal-animal-photography-baboon-close-up-633148/
 #### Animals theme background:
 https://www.pexels.com/photo/close-up-photography-of-peacock-148291/
 
+#### Paintings theme background:
+https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
+
 #### Back-side of the card:
 https://pixabay.com/pt/ponto-de-interroga%C3%A7%C3%A3o-pilha-pergunta-2492009/
 <br>
@@ -66,8 +69,8 @@ http://lj.rossia.org/users/john_petrov/6524.html, Public Domain, https://commons
 
 5. By Author: Leonardo da Vinci - "Mona Lisa". Galerie de tableaux en très haute définition: image page - Cropped and relevelled from File:Mona Lisa, by Leonardo da Vinci, from C2RMF.jpg. Originally C2RMF: Galerie de tableaux en très haute définition: image page, Public Domain, https://commons.wikimedia.org/w/index.php?curid=15442524
 
-6. By WebMuseum at ibiblioPage: http://www.ibiblio.org/wm/paint/auth/munch/Image URL: http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg, Public Domain, https://commons.wikimedia.org/w/index.php?curid=37610298
+6. By Author: Edvard Munch - "Scream". WebMuseum at ibiblioPage: http://www.ibiblio.org/wm/paint/auth/munch/Image URL: http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg, Public Domain, https://commons.wikimedia.org/w/index.php?curid=37610298
 
 7. By Author: Sandro Botticelli - "La nascita di Venere". Adjusted levels from File:Sandro Botticelli - La nascita di Venere - Google Art Project.jpg, originally from Google Art Project. Compression Photoshop level 9., Public Domain, https://commons.wikimedia.org/w/index.php?curid=22507491
 
-8. 
+8. By Author: Vincent van Gogh "Starry night over the Rhône" (1888). A faithful photographic reproduction of a two-dimensional, public domain work of art. Source: https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
