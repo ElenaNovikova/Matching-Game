@@ -75,3 +75,15 @@ URL: http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg, Public Domain,
 7. By Author: **Sandro Botticelli - "La nascita di Venere" (1484–1486)**. Adjusted levels from File:Sandro Botticelli - La nascita di Venere - Google Art Project.jpg, originally from Google Art Project. Compression Photoshop level 9., Public Domain, https://commons.wikimedia.org/w/index.php?curid=22507491
 
 8. By Author: **Vincent van Gogh - "Starry night over the Rhône" (1888)**. A faithful photographic reproduction of a two-dimensional, public domain work of art. Source: https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg
+
+## Licensing
+*Copyright 2018 Elena Novikova* <br>
+Licensed under the Educational Community License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:
+
+http://www.osedu.org/licenses/ECL-2.0
+
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the License is distributed on an "AS IS"
+	BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+	or implied. See the License for the specific language governing
+	permissions and limitations under the License.
