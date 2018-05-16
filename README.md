@@ -14,7 +14,7 @@ bla-bla-bla
 
 ## Acknowledgments
 
-- Udacity's [Front-End Web Development Nanodegree program] (https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+- Udacity's [Front-End Web Development Nanodegree](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001/) program.
 - Project's starter code from: https://github.com/udacity/fend-project-memory-game
 - Shuffle function from: http://stackoverflow.com/a/2450976
 
