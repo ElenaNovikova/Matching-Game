@@ -215,6 +215,11 @@ ulDeck.addEventListener('click', function (event) {
             secondCardClicked = clicked.parentNode.dataset.imgName;
             clicked.parentNode.classList.add('selected');
         }
+        movesCounter++;
+        console.log(movesCounter);
+        //if (movesCounter ==) {
+
+        //}
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
             if (firstCardClicked === secondCardClicked) {
@@ -239,6 +244,8 @@ function doMatch() {
         matchCounter++;
         if (matchCounter == 16) {
             document.getElementById('time-spent').innerHTML = minutes + ' : ' + seconds;
+            document.getElementById('moves-made').innerHTML = movesCounter / 2;
+            //document.getElementById('your-score').innerHTML = ?;
             modal.style.display = "block"; // Game Over! Modal window appears.
             stopInterval();
         }
