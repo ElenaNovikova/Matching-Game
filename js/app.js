@@ -50,10 +50,6 @@ let movesCounter = 0; // Counter for amount of moves: 2 guesses is 1 move.
 let starsRating = 3;  // By default, when the game starts, the player has 3 ***.
 let matchCounter = 0; // Counter for amount of matches during the game.
 
-//function modal(gameOver) {
-
-//}
-
 /*
  * Choosing the game theme - Animals (pack2) or Paintings (pack):
  */
@@ -240,6 +236,12 @@ function doMatch() {
     selected.forEach(createLiTag => {
         createLiTag.classList.add('matched');
         createLiTag.classList.add('flip-scale-down-hor');
+        matchCounter++;
+        if (matchCounter == 16) {
+            console.log('Game Over!');
+            stopInterval();
+            modal.style.display = "block"; // Game Over! Modal window appears.
+        }
     });
 }
 
@@ -299,6 +301,12 @@ function gameTimer() {
     }, 1000);
 }
 
+/*function gameOver() {
+    if (matchCounter == 16) {
+        console.log('Game Over!');
+    }
+}*/
+
 /*
  * Setting up the Modal popup window:
  */
@@ -306,24 +314,24 @@ function gameTimer() {
 let modal = document.getElementById('myModal');
 
 // Get the button that opens the modal:
-let btn = document.getElementById("myBtn");
+//let btn = document.getElementById('myBtn');
 
 // Get the <span> element that closes the modal:
-let span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName('close')[0];
 
 // When the user clicks the button, open the modal:
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+//btn.onclick = function() {
+//    modal.style.display = 'block';
+//}
 
 // When the user clicks on <span> (x), close the modal:
 span.onclick = function() {
-    modal.style.display = "none";
+    modal.style.display = 'none';
 }
 
 // When the user clicks anywhere outside of the modal, close it:
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.style.display = 'none';
     }
 }
