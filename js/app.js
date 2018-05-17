@@ -238,9 +238,9 @@ function doMatch() {
         createLiTag.classList.add('flip-scale-down-hor');
         matchCounter++;
         if (matchCounter == 16) {
-            console.log('Game Over!');
-            stopInterval();
+            document.getElementById('time-spent').innerHTML = minutes + ' : ' + seconds;
             modal.style.display = "block"; // Game Over! Modal window appears.
+            stopInterval();
         }
     });
 }
