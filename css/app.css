@@ -64,6 +64,7 @@ p {
 #theme {
     text-transform:uppercase;
     text-align: center;
+    padding-left: 0px;
 }
 
 #theme li {
@@ -84,7 +85,8 @@ p {
                  3px 3px 8px darkblue;
 }
 
-.fa-check, .fa-stopwatch {
+.fa-check,
+.fa-stopwatch {
     padding-right: 10px;
 }
 
@@ -246,7 +248,7 @@ p {
  * The Modal popup window
  */
 
-/* Modal background */
+/*** Modal background ***/
 .modal {
     display: none; /* Not visible by default */
     position: fixed; /* Stay in place */
@@ -261,7 +263,7 @@ p {
     background-color: rgba(0,0,0,0.4); /* Black with opacity */
 }
 
-/* Modal Content */
+/*** Modal Content ***/
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -271,10 +273,9 @@ p {
     width: 300px;
     border-radius: 8px;
     text-align: center;
-    align: center;
 }
 
-/* Modal Close Button */
+/*** Modal Close Button ***/
 .close {
     color: #9f4caf;
     float: right;
@@ -313,4 +314,38 @@ p {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+
+/*** Breakpoints ***/
+@media screen and (min-width: 320px) and (max-width: 374px) {
+    h1 {
+        font-size: 32px;
+    }
+    .deck {
+        padding: 20px;
+    }
+    .score-panel {
+        max-width: 98%;
+    }
+    .modal-content {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 641px) {
+    h1 {
+        font-size: 38px;
+    }
+    .score-panel {
+        max-width: 98%;
+    }
+    .modal-content {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 642px) {
+    .modal-content {
+        max-width: 60%;
+    }
 }
