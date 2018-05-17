@@ -2,6 +2,8 @@
  * Creating a list that holds all of the cards (pack-1: "Paintings" & pack-2: "Animals"):
  */
 
+// TODO: add other card packs (game themes).
+
 const cardsPack2 = [
     'frog.jpg',
     'dog.jpg',
@@ -40,9 +42,17 @@ const cardsPack = [
     'Starry_Night_Over_the_Rhone2.jpg'
 ];
 
+// Variable declarations:
 let currentArray = cardsPack;
 let timerId = 0;
 let timerOn = false;  // By default timer is set to OFF.
+let movesCounter = 0; // Counter for amount of moves: 2 guesses is 1 move.
+let starsRating = 3;  // By default, when the game starts, the player has 3 ***.
+let matchCounter = 0; // Counter for amount of matches during the game.
+
+//function modal(gameOver) {
+
+//}
 
 /*
  * Choosing the game theme - Animals (pack2) or Paintings (pack):
@@ -111,7 +121,7 @@ function shuffle(array) {
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
-    }
+    };
 
     return array;
 }
@@ -142,39 +152,34 @@ restartGame.addEventListener('click', function () {
 });
 
 // Looping through each card and creating its HTML and adding to the DOM:
-function createImages()
-{
-  cards.forEach(function(item, index, array) {
+function createImages() {
+    cards.forEach(function(item, index, array) {
+        // Creating the <li> element for the card:
+        const createLiTag = document.createElement('li');
+        // Setting the <li>´s class attribute 'card':
+        createLiTag.setAttribute('class', 'card');
+        createLiTag.setAttribute('data-img-name', cards[index]);
+        /*
+         * Creating the front of the card
+         */
+        // Creating the 1st <img> element as the child element of the <li>:
+        createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
 
-      // Creating the <li> element for the card:
-      const createLiTag = document.createElement('li');
-      // Setting the <li>´s class attribute 'card':
-      createLiTag.setAttribute('class', 'card');
-      createLiTag.setAttribute('data-img-name', cards[index]);
-      /*
-       * Creating the front of the card
-       */
-      // Creating the 1st <img> element as the child element of the <li>:
-      createLiTag.innerHTML = '<img class=\"face\"' + ' src=\"img/' + cards[index] + '\"' + ' alt=\"animal card\">';
-
-      /*
-       * Creating the back of the card
-       */
-      // Creating the 2nd <img> element for back-side of the card:
-      const cardBack = document.createElement('img');
-      createLiTag.appendChild(cardBack);
-      // Setting the <li>´s classes attributes 'card' and 'back':
-      cardBack.setAttribute('class', 'back');
-      cardBack.setAttribute('src', 'img/back1.jpg');
-      cardBack.setAttribute('alt', 'back of the card');
-
-      // Selecting the <ul class="deck">:
-      let ulDeck = document.querySelector('.deck');
-
-      // Adding the <li> element as the last child element of the <ul class="deck">:
-      ulDeck.appendChild(createLiTag);
-
-  });
+        /*
+         * Creating the back of the card
+         */
+        // Creating the 2nd <img> element for back-side of the card:
+        const cardBack = document.createElement('img');
+        createLiTag.appendChild(cardBack);
+        // Setting the <li>´s classes attributes 'card' and 'back':
+        cardBack.setAttribute('class', 'back');
+        cardBack.setAttribute('src', 'img/back1.jpg');
+        cardBack.setAttribute('alt', 'back of the card');
+        // Selecting the <ul class="deck">:
+        let ulDeck = document.querySelector('.deck');
+        // Adding the <li> element as the last child element of the <ul class="deck">:
+        ulDeck.appendChild(createLiTag);
+    });
 }
 
 createImages();
@@ -236,7 +241,7 @@ function doMatch() {
         createLiTag.classList.add('matched');
         createLiTag.classList.add('flip-scale-down-hor');
     });
-};
+}
 
 // A function to discard the guesses:
 function discard() {
@@ -247,15 +252,14 @@ function discard() {
     selected.forEach(createLiTag => {
         createLiTag.classList.remove('selected');
     });
-};
+}
 
 // Adding the delay of 1.4 seconds to opened cards before they'll be flipped over:
-let delay = 1400;
+const delay = 1400;
 
 /*
  * Setting the game timer:
  */
-
 let seconds = 0;
 let minutes = 0;
 
@@ -269,7 +273,7 @@ function stopInterval() {
     seconds = 0;
     document.getElementById('timer').innerHTML = '00:00';
     clearInterval(timerId);
-};
+}
 
 function gameTimer() {
     if (timerOn) {
@@ -293,4 +297,33 @@ function gameTimer() {
             seconds = 0;
         }
     }, 1000);
-};
+}
+
+/*
+ * Setting up the Modal popup window:
+ */
+// Get the modal:
+let modal = document.getElementById('myModal');
+
+// Get the button that opens the modal:
+let btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal:
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal:
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal:
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it:
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
