@@ -21,13 +21,12 @@
 
         <section class="score-panel">
           	<ul class="stars">
-            		<li><i class="fas fa-star"></i></li>
-            		<li><i class="fas fa-star"></i></li>
-            		<li><i class="fas fa-star"></i></li>
+            		<li><i class="fas fa-star" id="one-star"></i></li>
+            		<li><i class="fas fa-star" id="two-stars"></i></li>
+            		<li><i class="fas fa-star" id="three-stars"></i></li>
           	</ul>
             <span class="moves">0</span> Moves
           	<i class="fas fa-stopwatch"></i><span id="timer" class="time">00:00</span>
-            <!-- <input id="restart" type="button" value = "Restart" onclick="history.go(0)"/> -->
             <input id="restart" type="button" value = "Restart"/>
             <p>Choose theme:</p>
             <ul id="theme">
@@ -36,8 +35,32 @@
           	</ul>
         </section>
 
-        <ul id="decks" class="deck">
-        </ul>
+        <ul id="decks" class="deck"></ul>
+
+        <!-- The Modal window -->
+                <!-- Trigger/Open The Modal test button -->
+                <button id="myBtn">Open Modal</button>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p class="modal-text">Congratulations!<br>You won the game!</p>
+                <table id="final-score">
+                    <tr class="">
+                        <th>Your score:</th>
+                        <th>Time spent:</th>
+                        <th>Moves made:</th>
+                    </tr>
+                    <tr class="">
+                        <td>*</td>
+                        <td>00:00</td>
+                        <td>xx</td>
+                    </tr>
+                </table>
+                <input id="restart1" type="button" value="Play again" onclick="history.go(0)"/>
+            </div>
+        </div>
+
         <footer class="footer-text">
             <p>Developed by <a href="http://www.issomesmo.net" target="_blank">Elena Novikova</a> in 2018</p>
         </footer>
