@@ -159,49 +159,10 @@ p {
     border: 3px solid #9f4caf;
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
-    /*transform: scale(1.1);
-    /*transition: all .3s;*/
-}  /* Adding somestyle for selected cards*/
-
-/* vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
- * Flip animation of matched cards
- */
-
-/*.flip-scale-down-hor {
-       animation: flip-scale-down-hor 0.5s linear both;
-       -webkit-animation: flip-scale-down-hor 0.5s linear both; /* Chrome, Safari, Opera */
-/*}*/
-
-@keyframes flip-scale-down-hor {
-    0% {
-        transform: scale(1) rotateX(0);
-        -webkit-transform: scale(1) rotateX(0); /* Chrome, Safari, Opera */
-    }
-    25% {
-        transform: scale(0.4) rotateX(90deg);
-        -webkit-transform: scale(0.4) rotateX(90deg);
-    }
-
-    50% {
-        transform: scale(0.6) rotateX(180deg);
-        -webkit-transform: scale(0.8) rotateX(180deg);
-    }
-
-    75% {
-        transform: scale(0.8) rotateX(90deg);
-        -webkit-transform: scale(0.8) rotateX(90deg);
-    }
-
-    100% {
-        transform: scale(1) rotateX(0);
-        -webkit-transform: scale(1) rotateX(0);
-    }
 }
 
 .matched {
-    border: 3px solid #557096;
-    /*animation: flip-scale-down-hor 0.5s linear both;
-    -webkit-animation: flip-scale-down-hor 0.5s linear both;*/
+    border: 3px solid yellow;
     transform: rotateY(180deg) scale(1.05);
     -webkit-transform: rotateY(180deg) scale(1.05);
 }
