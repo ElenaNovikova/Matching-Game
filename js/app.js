@@ -47,7 +47,7 @@ let currentArray = cardsPack;
 let timerId = 0;
 let timerOn = false;  // By default timer is set to OFF.
 let movesCounter = 0; // Counter for amount of moves: 2 guesses is 1 move.
-let starsRating = 3;  // By default, when the game starts, the player has 3 ***.
+let starsRating;  // By default, when the game starts, the player has 3 ***.
 let matchCounter = 0; // Counter for amount of matches during the game.
 
 /*
@@ -59,13 +59,16 @@ let el = document.getElementById('theme');
 el.addEventListener('click', function(event) {
     let clicked = event.target;
     stopInterval();
+    movesCounter = '';
+    let movesZero = document.querySelector('.moves'); // Clearing DOM from last number of moves
+    movesZero.textContent = '0';
     if (clicked.classList.contains('pack2')) {
         window.clearInterval(timerOn);
         currentArray = cardsPack2; // Animals theme
         let body = document.getElementsByTagName('body')[0];
         body.style.backgroundImage = 'url(img/peacock.jpg)';
 
-        // Adding check-icon for choosed theme:
+        // Adding check-icon for chosen theme:
         let objAnimals = document.getElementById('checkA');
         if (objAnimals !== null)
           objAnimals.remove();
@@ -217,9 +220,19 @@ ulDeck.addEventListener('click', function (event) {
         }
         movesCounter++;
         console.log(movesCounter);
-        //if (movesCounter ==) {
-
-        //}
+        document.querySelector('.moves').innerHTML = Math.round(movesCounter / 2);
+        if (movesCounter <= 20) {
+            starsRating = document.getElementById('your-score');
+            starsRating.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+        } else if (movesCounter <= 30) {
+            starsRating = document.querySelector('.stars');
+            starsRating.removeChild(starsRating.childNodes[0]);
+        } else {
+            starsRating = document.getElementById('two-stars');
+            starsRating.remove();
+            starsRating = document.getElementById('three-stars');
+            starsRating.remove();
+        }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
             if (firstCardClicked === secondCardClicked) {
@@ -245,7 +258,7 @@ function doMatch() {
         if (matchCounter == 16) {
             document.getElementById('time-spent').innerHTML = minutes + ' : ' + seconds;
             document.getElementById('moves-made').innerHTML = movesCounter / 2;
-            //document.getElementById('your-score').innerHTML = ?;
+            //document.getElementById('your-score').innerHTML = starsRating;
             modal.style.display = "block"; // Game Over! Modal window appears.
             stopInterval();
         }
@@ -308,28 +321,14 @@ function gameTimer() {
     }, 1000);
 }
 
-/*function gameOver() {
-    if (matchCounter == 16) {
-        console.log('Game Over!');
-    }
-}*/
-
 /*
  * Setting up the Modal popup window:
  */
 // Get the modal:
 let modal = document.getElementById('myModal');
 
-// Get the button that opens the modal:
-//let btn = document.getElementById('myBtn');
-
 // Get the <span> element that closes the modal:
 let span = document.getElementsByClassName('close')[0];
-
-// When the user clicks the button, open the modal:
-//btn.onclick = function() {
-//    modal.style.display = 'block';
-//}
 
 // When the user clicks on <span> (x), close the modal:
 span.onclick = function() {
