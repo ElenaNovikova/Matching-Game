@@ -47,7 +47,6 @@ let currentArray = cardsPack;
 let timerId = 0;
 let timerOn = false;  // By default timer is set to OFF.
 let movesCounter = 0; // Counter for amount of moves: 2 guesses is 1 move.
-let starsRating;  // By default, when the game starts, the player has 3 ***.
 let matchCounter = 0; // Counter for amount of matches during the game.
 
 /*
@@ -60,7 +59,7 @@ el.addEventListener('click', function(event) {
     let clicked = event.target;
     stopInterval();
     movesCounter = '';
-    let movesZero = document.querySelector('.moves'); // Clearing DOM from last number of moves
+    let movesZero = document.querySelector('.moves'); // Clearing the DOM from the value of last number's moves
     movesZero.textContent = '0';
     if (clicked.classList.contains('pack2')) {
         window.clearInterval(timerOn);
@@ -104,10 +103,7 @@ el.addEventListener('click', function(event) {
 }, false);
 
 /*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
+ * Displaying the cards on the page
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -183,17 +179,6 @@ function createImages() {
 
 createImages();
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
 // Setting up the event listener for cards:
 let ulDeck = document.getElementById('decks');
 
@@ -219,19 +204,21 @@ ulDeck.addEventListener('click', function (event) {
             clicked.parentNode.classList.add('selected');
         }
         movesCounter++;
-        console.log(movesCounter);
         document.querySelector('.moves').innerHTML = Math.round(movesCounter / 2);
         if (movesCounter <= 20) {
-            starsRating = document.getElementById('your-score');
-            starsRating.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            let modalStars = document.getElementById('your-score');
+            modalStars.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
         } else if (movesCounter <= 30) {
-            starsRating = document.querySelector('.stars');
-            starsRating.removeChild(starsRating.childNodes[0]);
+            let starsRating = document.getElementById('one-star');
+            starsRating.innerHTML = '';
+            console.log(starsRating);
+            let modalStars = document.getElementById('your-score');
+            modalStars.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i>';
         } else {
-            starsRating = document.getElementById('two-stars');
-            starsRating.remove();
-            starsRating = document.getElementById('three-stars');
-            starsRating.remove();
+            let starsRating1 = document.getElementById('two-stars');
+            starsRating1.innerHTML = '';
+            let modalStars = document.getElementById('your-score');
+            modalStars.innerHTML = '<i class="fas fa-star"></i>';
         }
         // Now let's compare if the 1st and the 2nd clicked cards are matched:
         if (firstCardClicked !== '' && secondCardClicked !== '') {
@@ -242,7 +229,6 @@ ulDeck.addEventListener('click', function (event) {
                 setTimeout(discard, delay);
             }
         }
-
         // Set previous target to clicked:
         previousTarget = clicked;
     }
