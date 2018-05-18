@@ -87,7 +87,11 @@ p {
 
 .fa-check,
 .fa-stopwatch {
-    padding-right: 10px;
+    padding-right: 8px;
+}
+
+.fa-stopwatch {
+    padding-left: 10px;
 }
 
 .faactive {
@@ -220,8 +224,8 @@ p {
     background: #9f4caf;
 }
 
-.score-panel .moves {
-    background-color: rgba(46, 61, 73, 0.9);
+span.moves {
+    padding-right: 5px;
 }
 
 .score-panel .stars li {
@@ -346,6 +350,6 @@ p {
 
 @media screen and (min-width: 642px) {
     .modal-content {
-        max-width: 60%;
+        max-width: 70%;
     }
 }
