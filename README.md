@@ -13,7 +13,11 @@ The game board consists of sixteen virtual cards. The deck is made up of eight d
 
 ## Browser compatibility
 
-Application supports the majority of modern desktop, tablet, and phone browsers.
+Application supports the majority of modern desktop, tablet, and phone browsers, except for Safari on iOS. 
+
+## Known issues
+
+The application doesn't support Safari browser on iOS (while on Google Chrome and Mozilla Firefox browsers for iOS it works correctly). Flip animation effects doesn't work properly.
 
 ## Acknowledgments
 
